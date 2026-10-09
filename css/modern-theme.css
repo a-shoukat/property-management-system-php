@@ -1,0 +1,270 @@
+/* ============================================================
+   EA MARKETS — Modern Theme Override
+   Frontend redesign: deep navy + teal + gold palette,
+   modern typography, rounded cards, glassmorphism touches.
+   Loaded AFTER style.css — overrides only, no logic touched.
+   ============================================================ */
+
+/* ---------- 1. Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@400;500;600;700;800&display=swap');
+
+/* ---------- 2. Palette (override theme variables) ---------- */
+:root {
+  --theme-primary-color: #0f766e;            /* teal */
+  --theme-secondary-color: #0d2a43;         /* deep navy */
+  --theme-footer-color: #0a1f33;
+  --theme-dark-color: #0a1f33;
+  --theme-primary-opacity-color: rgba(15, 118, 110, .85);
+  --theme-secondary-opacity-color: rgba(13, 42, 67, .78);
+  --theme-ordinary-font: 'Plus Jakarta Sans', sans-serif;
+  --theme-highlight-font: 'Sora', sans-serif;
+  --gold: #d4af37;
+  --gold-light: #e8c96a;
+  --ink: #12263a;
+  --muted: #5b6b7c;
+  --card-shadow: 0 12px 32px rgba(13, 42, 67, .10);
+  --card-shadow-hover: 0 20px 44px rgba(13, 42, 67, .16);
+}
+
+/* ---------- 3. Base typography ---------- */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  color: var(--ink);
+  background: #f7f9fb;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5,
+.page-name, .widget-title {
+  font-family: 'Sora', sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- 4. Bootstrap "success" -> teal rebrand ---------- */
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background-color: #0f766e !important;
+  border-color: #0f766e !important;
+}
+.btn-success:hover, .btn-success:focus {
+  background-color: #0b5f57 !important;
+  border-color: #0b5f57 !important;
+  box-shadow: 0 8px 20px rgba(15, 118, 110, .35);
+}
+.text-success { color: #0f766e !important; }
+.border-success { border-color: #0f766e !important; }
+a.text-success:hover, .hover-text-success:hover { color: #0b5f57 !important; }
+
+/* secondary -> navy */
+.bg-secondary { background-color: #0d2a43 !important; }
+.text-secondary { color: #0d2a43 !important; }
+
+/* ---------- 5. Buttons: modern pills ---------- */
+.btn {
+  border-radius: 999px !important;
+  padding: .65rem 1.6rem !important;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37, #b8912b) !important;
+  border-color: #d4af37 !important;
+  color: #fff !important;
+}
+.btn-gold:hover { box-shadow: 0 8px 20px rgba(212, 175, 55, .4); color: #fff !important; }
+
+/* ---------- 6. Header / navbar ---------- */
+#header .top-header { background: #0d2a43 !important; font-size: 13px; }
+#header .main-nav {
+  background: rgba(255, 255, 255, .92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(13, 42, 67, .08);
+}
+#header .navbar-brand { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.5rem; color: #0d2a43 !important; }
+#header .navbar-brand .brand-accent { color: #0f766e; }
+#header .navbar-brand .brand-gold { color: #d4af37; }
+#header .nav-logo { max-height: 46px; border-radius: 10px; }
+#header .navbar-nav .nav-link {
+  font-weight: 600; color: #0d2a43 !important;
+  padding: .6rem 1rem !important; border-radius: 10px;
+  transition: all .18s ease;
+}
+#header .navbar-nav .nav-link:hover {
+  color: #0f766e !important; background: rgba(15, 118, 110, .08);
+}
+#header .dropdown-menu {
+  border: none; border-radius: 14px;
+  box-shadow: var(--card-shadow); padding: .6rem;
+}
+#header .dropdown-menu .nav-link { border-radius: 8px; }
+
+/* ---------- 7. Hero / banner ---------- */
+.slider-banner1::before,
+.overlay-black::before {
+  background: linear-gradient(120deg, rgba(13,42,67,.88) 0%, rgba(13,42,67,.55) 55%, rgba(15,118,110,.45) 100%) !important;
+}
+.slider-banner1 h1 { font-weight: 800; line-height: 1.25; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+.slider-banner1 h1 .text-success { color: var(--gold-light) !important; }
+
+/* glassmorphism search card */
+.hero-search-card {
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .25);
+  margin-top: 26px;
+}
+.hero-search-card .form-control {
+  border-radius: 12px; border: none;
+  padding: .8rem 1rem; font-weight: 500;
+}
+.hero-search-card .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, .45);
+}
+.hero-search-card .btn {
+  border-radius: 12px !important;
+  min-height: 50px;
+  white-space: nowrap;
+  font-size: .95rem;
+}
+
+/* ---------- 8. Section titles ---------- */
+.double-down-line { position: relative; padding-bottom: 16px; }
+.double-down-line::after {
+  content: ""; position: absolute; left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  width: 72px; height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, #0f766e, #d4af37);
+}
+.double-down-line-left::after {
+  content: ""; position: absolute; left: 0; bottom: -8px;
+  width: 44px; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, #d4af37, #0f766e);
+}
+
+/* ---------- 9. Property cards ---------- */
+.featured-thumb {
+  border-radius: 18px; overflow: hidden;
+  background: #fff; box-shadow: var(--card-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid rgba(13, 42, 67, .06);
+}
+.featured-thumb:hover {
+  transform: translateY(-6px); box-shadow: var(--card-shadow-hover);
+}
+.featured-thumb .overlay-black { border-radius: 18px 18px 0 0; }
+.featured-thumb img { transition: transform .5s ease; }
+.featured-thumb:hover img { transform: scale(1.06); }
+.featured-thumb .sale {
+  border-radius: 999px; padding: 6px 16px !important;
+  font-weight: 700; font-size: 12px; letter-spacing: .04em;
+  text-transform: uppercase; box-shadow: 0 6px 16px rgba(15,118,110,.4);
+}
+.featured-thumb .price {
+  background: linear-gradient(135deg, #0d2a43, #0f766e);
+  border-radius: 12px; padding: 8px 14px !important;
+  font-family: 'Sora', sans-serif; font-weight: 700;
+  color: #fff !important;
+}
+.featured-thumb .price span { color: rgba(255,255,255,.85) !important; }
+.featured-thumb-data { border-radius: 0 0 18px 18px; }
+.featured-thumb-data h5 a { color: #0d2a43; transition: color .18s; }
+.featured-thumb-data h5 a:hover { color: #0f766e; text-decoration: none; }
+.shadow-one { box-shadow: none !important; }
+
+/* ---------- 10. Page banner (inner pages) ---------- */
+.page-banner { position: relative; }
+.page-banner::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(13,42,67,.88), rgba(15,118,110,.55));
+}
+.page-banner .container { position: relative; z-index: 2; }
+.page-name { font-weight: 800; }
+.breadcrumb-item a { color: var(--gold-light); }
+.breadcrumb-item.active { color: #fff; }
+
+/* ---------- 11. Forms ---------- */
+.form-control {
+  border-radius: 12px !important;
+  border: 1px solid #dbe3ec !important;
+  padding: .75rem 1rem !important;
+  font-size: .95rem;
+}
+.form-control:focus {
+  border-color: #0f766e !important;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, .15) !important;
+}
+label { font-weight: 600; color: #0d2a43; }
+
+/* login / register cards */
+.login-wrapper .loginbox {
+  border-radius: 22px !important;
+  box-shadow: var(--card-shadow-hover) !important;
+  border: 1px solid rgba(13, 42, 67, .06) !important;
+  overflow: hidden;
+}
+.login-wrapper .loginbox .login-left {
+  background: linear-gradient(150deg, #0d2a43 0%, #0f766e 100%) !important;
+}
+.login-wrapper .loginbox .login-right h1 {
+  font-family: 'Sora', sans-serif !important; font-weight: 700; color: #0d2a43;
+}
+
+/* ---------- 12. Footer ---------- */
+footer.full-row {
+  background: linear-gradient(160deg, #0a1f33 0%, #0d2a43 60%, #0b3f3a 100%) !important;
+}
+.footer-widget .widget-title { font-weight: 700; margin-bottom: 1.2rem; }
+.footer-widget ul li { margin-bottom: .55rem; }
+.footer-widget ul li a { transition: all .18s ease; opacity: .85; }
+.footer-widget ul li a:hover { opacity: 1; color: var(--gold-light) !important; padding-left: 4px; }
+.media-widget a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255, 255, 255, .08); margin-right: 8px;
+  transition: all .2s ease; color: #fff !important;
+}
+.media-widget a:hover {
+  background: #d4af37; transform: translateY(-3px); color: #0d2a43 !important;
+}
+.copyright { border-top: 1px solid rgba(255, 255, 255, .12); padding: 18px 0; }
+
+/* ---------- 13. Misc polish ---------- */
+.bg-gray { background: #f7f9fb !important; }
+.full-row { padding: 70px 0; }
+.icon-thumb-one {
+  background: #fff; border-radius: 20px; padding: 34px 24px;
+  box-shadow: var(--card-shadow); border: 1px solid rgba(13,42,67,.06);
+  transition: transform .25s ease, box-shadow .25s ease; height: 100%;
+}
+.icon-thumb-one:hover { transform: translateY(-6px); box-shadow: var(--card-shadow-hover); }
+.icon-thumb-one .flat-medium { color: #0f766e; }
+.fact-counter .count-num { font-family: 'Sora', sans-serif; font-weight: 800; }
+.table { border-radius: 14px; overflow: hidden; }
+.table thead th { background: #0d2a43; color: #fff; border: none; }
+.pagination .page-item.active .page-link {
+  background: #0f766e; border-color: #0f766e; border-radius: 10px;
+}
+.page-link { border-radius: 10px; margin: 0 3px; color: #0d2a43; }
+.nav-pills .nav-link.active { background: #0f766e !important; border-radius: 999px; }
+
+/* gold divider */
+.gold-rule { height: 4px; width: 72px; border-radius: 4px;
+  background: linear-gradient(90deg, #d4af37, #0f766e); margin: 14px 0; }
+
+/* back-to-top */
+#scroll { background: #0f766e !important; border-radius: 12px !important; }
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .full-row { padding: 46px 0; }
+  .slider-banner1 h1 { font-size: 1.7rem; }
+  .hero-search-card { padding: 16px; }
+}
